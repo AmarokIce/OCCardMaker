@@ -18,6 +18,6 @@ jobs:
       - name: Publish Web App
         uses: openMF/mifos-x-actionhub-web-publish-kmp@v1.0.1
         with:
-          web_package_name: 'OCCardMaker'
+          web_package_name: 'composeApp'
           java-version: '21'
           target: 'wasmJs'
