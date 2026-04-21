@@ -1,35 +1,22 @@
-name: Deploy KMP Web App to GitHub Pages
+name: Deploy Web App
 
 on:
   push:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+    branches:
+      - main
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+
     steps:
-      - name: Set up JDK
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v4
+      
+      - name: Publish Web App
+        uses: openMF/mifos-x-actionhub-web-publish-kmp@v1.0.1
         with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Build Web App
-        run: ./gradlew wasmJsBrowserDistribution
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'build/dist/wasmJs/productionExecutable/'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          web_package_name: 'your-web-module-name'
+          java-version: '21'
