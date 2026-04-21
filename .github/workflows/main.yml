@@ -14,9 +14,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Publish Web App
         uses: openMF/mifos-x-actionhub-web-publish-kmp@v1.0.1
         with:
-          web_package_name: 'your-web-module-name'
+          web_package_name: 'OCCardMaker'
           java-version: '21'
