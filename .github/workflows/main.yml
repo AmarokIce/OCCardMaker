@@ -20,3 +20,4 @@ jobs:
         with:
           web_package_name: 'OCCardMaker'
           java-version: '21'
+          target: 'wasmJs'
